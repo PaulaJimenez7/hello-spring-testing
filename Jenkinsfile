@@ -27,7 +27,7 @@ pipeline {
             }
             post{
                 always{
-                    junit 'buils/test-results/test/TEST-*.xml'
+                    junit 'buil/test-results/test/TEST-*.xml'
                 }
             }
         }
