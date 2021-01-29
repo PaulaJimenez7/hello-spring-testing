@@ -13,12 +13,22 @@ pipeline {
                     sh './gradlew assemble'
                 } 
             }
+            post{
+                success{
+                    archiveArtifacts 'build/libs/*.jar'
+                }
+            }
         }
         stage('test') {
             steps {
                 withGradle{
                     sh './gradlew  test'
                 }              
+            }
+            post{
+                always{
+                    junit 'buils/test-results/test/TEST-*.xml'
+                }
             }
         }
     }
