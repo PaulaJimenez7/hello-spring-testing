@@ -28,7 +28,7 @@ pipeline {
             post{
                 always{
                     junit 'build/test-results/test/TEST-*.xml'
-                    jacoco(execPattern: 'build/jacoco.exec')
+                    jacoco(execPattern: 'build/jacoco/test.exec')
                 }
             }
         }
