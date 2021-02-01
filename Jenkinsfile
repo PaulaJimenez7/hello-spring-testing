@@ -28,8 +28,19 @@ pipeline {
             post{
                 always{
                     junit 'build/test-results/test/TEST-*.xml'
-                    jacoco(execPattern: 'build/jacoco/test.exec')
-                    pitmutation mutationStatsFile: 'build/pit-reports/**/mutations.xml '
+                    //jacoco(execPattern: 'build/jacoco/test.exec')
+                }
+            }
+        }
+        stage('pitest'){
+            steps{
+                withGradle{
+                    sh './gradlew pitest'
+                }
+            }
+            post{
+                always{
+                    pitmutation mutationStatsFile: 'build/pit-reports/**/mutations.xml'
                 }
             }
         }
