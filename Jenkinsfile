@@ -35,7 +35,7 @@ pipeline {
         stage('pitest'){
             steps{
                 withGradle{
-                    sh './gradlew pitest'
+                    sh './gradlew clean pitest'
                 }
             }
             post{
