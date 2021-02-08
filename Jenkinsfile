@@ -19,7 +19,7 @@ pipeline {
                 }
             }
         }
-        stage('test') {
+        /*stage('test') {
             steps {
                 withGradle{
                     sh './gradlew clean test'
@@ -60,7 +60,7 @@ pipeline {
 
                 }
             }
-        }
+        }*/
         stage('sonarQube') {
             steps { 
                 configFileProvider([configFile(fileId:'	GradleProperties-SonarQube', targetLocation: 'gradle.properties')]) {
