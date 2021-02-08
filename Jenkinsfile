@@ -71,10 +71,7 @@ pipeline {
             }
             post{
                 always{
-                    recordIssues(
-                        enabledForFailure: true, 
-                        tool: [sonarQube(pattern: 'build/sonar/*.txt')]
-                    )
+                    recordIssues(tools: [sonarQube(pattern: 'build/sonar/*.txt')])
                 }
             }
         }
