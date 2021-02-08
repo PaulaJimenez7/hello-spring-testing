@@ -53,7 +53,11 @@ pipeline {
             }
             post{
                 always{
-                    junit 'build/reports/pmd/*.xml'
+                    recordIssues(
+                        enabledForFailure: true, aggregatingResults: true, 
+                        tools: [java(), checkStyle(pattern: 'build/reports/pmd/*.xml')]
+                    )
+
                 }
             }
         }
