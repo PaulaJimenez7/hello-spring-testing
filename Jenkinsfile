@@ -39,9 +39,9 @@ pipeline {
                 }
             }
             post{
-                always{
+                always{*/
                     //pitmutation mutationStatsFile: 'build/reports/pitest/**/mutations.xml'
-                }
+                /*}
             }
         }
 
