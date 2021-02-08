@@ -55,7 +55,7 @@ pipeline {
                 always{
                     recordIssues(
                         enabledForFailure: true, aggregatingResults: true, 
-                        tools: [java(), checkStyle(pattern: 'build/reports/pmd/*.xml')]
+                        tools: [java(), pmdParser(pattern: 'build/reports/pmd/*.xml')]
                     )
 
                 }
