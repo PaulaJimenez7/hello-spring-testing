@@ -69,11 +69,6 @@ pipeline {
                     }
                 }              
             }
-            post{
-                always{
-                    recordIssues(tools: [sonarQube(pattern: 'build/sonar/*.txt')])
-                }
-            }
         }
     }
 }
