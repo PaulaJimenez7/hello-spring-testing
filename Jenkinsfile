@@ -44,5 +44,18 @@ pipeline {
                 }
             }
         }
+
+        stage('pmdtest'){
+            steps{
+                withGradle{
+                    sh './gradlew check'
+                }
+            }
+            post{
+                always{
+                    junit 'build/reports/pmd/*.xml'
+                }
+            }
+        }
     }
 }
