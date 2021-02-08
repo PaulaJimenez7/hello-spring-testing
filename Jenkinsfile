@@ -61,5 +61,22 @@ pipeline {
                 }
             }
         }
+        stage('sonarQube') {
+            steps { 
+                configFileProvider([configFile(fileId:'	GradleProperties-SonarQube', targetLocation: 'gradle.properties')]) {
+                    withGradle{
+                        sh './gradlew sonar'
+                    }
+                }              
+            }
+            post{
+                always{
+                    recordIssues(
+                        enabledForFailure: true, 
+                        tools: [java(), sonarQube(pattern: 'build/sonar/*.txt')]
+                    )
+                }
+            }
+        }
     }
 }
