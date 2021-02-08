@@ -33,3 +33,6 @@ pitest{
 checkstyle{
 	ignoreFailures = true
 }
+pmd{
+	ignoreFailures = true
+}
