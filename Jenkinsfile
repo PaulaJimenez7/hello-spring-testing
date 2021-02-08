@@ -65,7 +65,7 @@ pipeline {
             steps { 
                 configFileProvider([configFile(fileId: 'hello-spring-testing-gradle.properties', targetLocation: 'gradle.properties')]) {
                     withGradle{
-                        sh './gradlew sonar'
+                        sh './gradlew sonarqube'
                     }
                 }              
             }
