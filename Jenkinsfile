@@ -63,7 +63,7 @@ pipeline {
         }*/
         stage('sonarQube') {
             steps { 
-                configFileProvider([configFile(fileId:'	GradleProperties-SonarQube', targetLocation: 'gradle.properties')]) {
+                configFileProvider([configFile(fileId: 'GradleProperties-SonarQube', targetLocation: 'gradle.properties')]) {
                     withGradle{
                         sh './gradlew sonar'
                     }
