@@ -54,7 +54,7 @@ pipeline {
             post{
                 always{
                     recordIssues(
-                        enabledForFailure: true, aggregatingResults: true, 
+                        enabledForFailure: true, 
                         tools: [java(), pmdParser(pattern: 'build/reports/pmd/*.xml')]
                     )
 
