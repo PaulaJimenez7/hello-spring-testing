@@ -42,3 +42,6 @@ pmd{
 spotbugs {
     ignoreFailures = true
 }
+dependencycheck{
+	format='XML,HTML'
+}
