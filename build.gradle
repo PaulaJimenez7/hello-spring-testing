@@ -43,5 +43,5 @@ spotbugs {
     ignoreFailures = true
 }
 dependencycheck{
-	format= ['XML', 'HTML']
+	format= 'XML'
 }
