@@ -43,5 +43,6 @@ spotbugs {
     ignoreFailures = true
 }
 dependencyCheck{
+	autoUpdate=false
 	format= 'ALL'
 }
