@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('build') {
+        /*stage('build') {
             steps {
                 withGradle{
                     sh './gradlew assemble'
@@ -18,7 +18,7 @@ pipeline {
                     archiveArtifacts 'build/libs/*.jar'
                 }
             }
-        }
+        }*/
         /*stage('test') {
             steps {
                 withGradle{
