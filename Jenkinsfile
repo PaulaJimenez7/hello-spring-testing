@@ -76,11 +76,6 @@ pipeline {
             steps{
                 sh './gradlew dependencyCheckAnalyze'
             }
-            post{
-                always{
-                   
-                }
-            }
         }
 
     }
