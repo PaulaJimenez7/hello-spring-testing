@@ -60,7 +60,7 @@ pipeline {
 
                 }
             }
-        }*/
+        }
         stage('sonarQube') {
             steps { 
                 configFileProvider([configFile(fileId: 'hello-spring-testing-gradle.properties', targetLocation: 'gradle.properties')]) {
@@ -71,6 +71,17 @@ pipeline {
                     }
                 }              
             }
+        }*/
+        stage("owasp"){
+            steps{
+                sh './gradlew dependencyCheckAnalyze'
+            }
+            post{
+                always{
+                   
+                }
+            }
         }
+
     }
 }
