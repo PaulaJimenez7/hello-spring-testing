@@ -28,6 +28,7 @@ pipeline {
             post{
                 always{
                     junit 'build/test-results/test/TEST-*.xml'
+<<<<<<< HEAD
                     //jacoco(execPattern: 'build/jacoco/test.exec')
                 }
             }
@@ -36,6 +37,9 @@ pipeline {
             steps{
                 withGradle{
                     sh './gradlew clean pitest'
+=======
+                    jacoco(execPattern: 'build/jacoco/test.exec')
+>>>>>>> ee13c005e80ee0de908907b90280364f369a39ff
                 }
             }
             post{
