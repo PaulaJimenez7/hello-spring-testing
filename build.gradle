@@ -60,8 +60,8 @@ publishing {
             maven {
                 url "http://localhost:9082/repository/snapshots/"
                 credentials{
-                    username 'admin'
-                    password 'sinensia7'
+                    username System.getenv("archivaUsername")
+		    password System.getenv("archivaPassword")
                 }
             }
         }
