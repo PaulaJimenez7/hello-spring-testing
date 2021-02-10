@@ -7,10 +7,10 @@ pipeline {
     }
 
     stages {
-        stage("archive"){
+        stage("nexus"){
             steps{
                 withGradle{
-                    withCredentials([usernamePassword(credentialsId: 'ApacheArchiva', passwordVariable: 'archivaPassword', usernameVariable: 'archivaUsername')]) {
+                   withCredentials([usernamePassword(credentialsId: 'ApacheArchiva', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                         sh './gradlew publish'
                     }
                 }
