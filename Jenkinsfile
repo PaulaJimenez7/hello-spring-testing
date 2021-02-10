@@ -71,7 +71,7 @@ pipeline {
                     }
                 }              
             }
-        }*/
+        }
         stage("owasp"){
             steps{
                 sh './gradlew dependencyCheckAnalyze'
@@ -79,6 +79,16 @@ pipeline {
             post{
                 always{
                     dependencyCheckPublisher pattern: 'build/reports/dependency-check-report.xml'
+                }
+            }
+        }*/
+
+        stage("publish"){
+            steps{
+                withCredentials([string(credentialsId: 'gitLabPrivateToken')]){
+                    withGradle{
+                        sh './gradlew publish'
+                    }
                 }
             }
         }
