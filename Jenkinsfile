@@ -7,30 +7,15 @@ pipeline {
     }
 
     stages {
-        stage('build') {
-            steps {
+        stage("nexus"){
+            steps{
                 withGradle{
-                    sh './gradlew assemble'
-                } 
-            }
-            post{
-                success{
-                    archiveArtifacts 'build/libs/*.jar'
+                   withCredentials([usernamePassword(credentialsId: 'ApacheArchiva', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                        sh './gradlew publish'
+                    }
                 }
             }
         }
-        stage('test') {
-            steps {
-                withGradle{
-                    sh './gradlew clean test'
-                }              
-            }
-            post{
-                always{
-                    junit 'build/test-results/test/TEST-*.xml'
-                    jacoco(execPattern: 'build/jacoco/test.exec')
-                }
-            }
-        }
+
     }
 }
